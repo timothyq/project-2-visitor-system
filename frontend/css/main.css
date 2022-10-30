@@ -1,0 +1,19 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.row {
+  background: white;
+  border-radius: 30px;
+}
+
+img#home-img {
+  border-top-right-radius: 30px;
+  border-bottom-right-radius: 30px;
+}
+
+div#messages {
+  display: none;
+}

@@ -2,6 +2,8 @@ import express from "express";
 
 import myDB from "../db/MyMongoDB.js";
 
+import { ObjectId } from "mongodb";
+
 const router = express.Router();
 
 router.get("/getVisitors", async (req, res) => {
@@ -31,10 +33,10 @@ router.post("/login", async (req, res) => {
 
 // Add visitor
 router.post("/addVisitors", async (req, res) => {
-  const visitor = req.body;
+  let visitor = req.body;
 
   try {
-    visitor = await myDB.addVisitor(visitor);
+    await myDB.addVisitor(visitor);
     res.json(visitor);
   } catch (err) {
     console.error("# Post Error", err);
@@ -44,24 +46,22 @@ router.post("/addVisitors", async (req, res) => {
 
 // delete visitor
 router.delete("/deleteVisitor/:id", async (req, res) => {
-  const id = req.params.id;
-  let respObj = {};
-
-  console.log("API ID:", id);
+  let id = req.params.id;
+  //console.log("API ID:", id);
 
   if (id && ObjectId.isValid(id)) {
     try {
-      respObj = await myDB.deleteVisitor(id);
+      await myDB.deleteVisitor(id);
     } catch (err) {
       console.error("# Delete Error", err);
       res.status(500).send({ error: err.name + ", " + err.message });
       return;
     }
   } else {
-    respObj = { message: "Data not deleted; the id to delete is not valid!" };
+    res = { message: "Data not deleted; the id to delete is not valid!" };
   }
 
-  res.json(respObj);
+  res.json();
 });
 
 export default router;

@@ -1,5 +1,5 @@
 import res from "express/lib/response.js";
-import { MongoClient } from "mongodb";
+import { MongoClient, ObjectId } from "mongodb";
 
 function MyMongoDB() {
   const myDB = {};
@@ -46,22 +46,22 @@ function MyMongoDB() {
     const db = client.db(DB_NAME);
     const visitCol = db.collection(COLLECTION_VISIT);
 
-    res = await visitCol.insertOne(visitor);
+    let res = await visitCol.insertOne(visitor);
 
-    return res;
+    console.log("Adding result: ", res);
   };
 
   //delete visitor from DB by id
   myDB.deleteVisitor = async (id) => {
-    const filter = { _id: new ObjectId(id) };
+    let filter = { _id: new ObjectId(id) };
 
     const client = new MongoClient(url);
 
     const db = client.db(DB_NAME);
-    const visitCol = db.collection(COLLECTION_VISIT);
+    let visitCol = db.collection(COLLECTION_VISIT);
 
-    res = await visitCol.deleteOne(filter);
-    return res;
+    let res = await visitCol.deleteOne(filter);
+    console.log("Delete result: ", res);
   };
 
   return myDB;

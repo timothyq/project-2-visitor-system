@@ -134,14 +134,14 @@ function scrollToSelection() {
  */
 function addData() {
   const name = document.getElementById("name").value;
-  const country = document.getElementById("age").value;
+  const age = document.getElementById("age").value;
 
   if (!name) {
     alert("Name is required!!");
     document.getElementById("name").focus();
     return;
   }
-  if (!country) {
+  if (!age) {
     alert("Age is required!!");
     document.getElementById("age").focus();
     return;
@@ -150,8 +150,8 @@ function addData() {
   postToDB({ name: name, age: age });
 }
 
-function postToDB(doc) {
-  fetch("http://localhost:3000/addVisitors/", {
+async function postToDB(doc) {
+  await fetch("http://localhost:3000/addVisitors/", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -201,7 +201,7 @@ function postToDB(doc) {
  */
 function deleteData() {
   if (selectedRowIx) {
-    const id = table.rows[selectedRowIx].cells.item(3).firstChild.value;
+    let id = table.rows[selectedRowIx].cells.item(3).firstChild.value;
     console.log("Delete id:", id);
     deleteFromDB(id);
   } else {
@@ -210,22 +210,23 @@ function deleteData() {
 }
 
 async function deleteFromDB(id) {
-  await fetch("http://localhost:3000/deleteVisitor/:id" + id, {
+  await fetch("/deleteVisitor/" + id, {
     method: "DELETE",
   })
     .then((res) => {
       if (res.ok) {
-        console.log("res OK", res);
-        return res.json();
+        console.log("res OK", res.json);
       } else {
         const text = res.text();
         throw new Error(text);
       }
     })
-    .then((data) => {
-      document.getElementById("status").innerHTML = JSON.stringify(data);
-      deleteFromTable(data.deletedCount);
-    })
+    // .then((data) => {
+    //   document.getElementById("status").innerHTML = JSON.stringify(data);
+    //   console.log("data deleted:", data);
+    //   console.log("json data:", JSON.stringify(data));
+    //   deleteFromTable(data.deletedCount);
+    // })
     .catch((error) => {
       console.error("# Error:", error);
       const msg =

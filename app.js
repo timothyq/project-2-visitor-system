@@ -30,4 +30,8 @@ app.listen(PORT, () => {
   console.log("Listening for connections on port ${PORT}");
 });
 
+function refreshPage(page) {
+  window.location.reload(page);
+}
+
 export default app;

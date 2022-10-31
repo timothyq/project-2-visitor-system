@@ -1,4 +1,3 @@
-import res from "express/lib/response.js";
 import { MongoClient, ObjectId } from "mongodb";
 
 function MyMongoDB() {

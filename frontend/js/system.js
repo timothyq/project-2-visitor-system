@@ -8,23 +8,6 @@ let selectedRowIx;
 let prevSelection;
 let table;
 
-// async function getVisitors() {
-
-// await fetch("http://localhost:3000/getVisitors")
-//   .then((response) => response.json())
-//   .then((data) => {
-//     console.log(data.result);
-//     for (var i = 0; i < data.result.length; i++) {
-//       //const name = document.createElement("div");
-//       // console.log(data.result.firstname)
-//       name.append(data.result[i].name);
-//       age.append(data.result[i].age);
-//       gender.append(data.result[i].gender);
-//       phone.append(data.result[i].phone);
-//       //row.append(name);
-//     }
-//   });
-
 window.onload = () => {
   document.getElementById("status").innerHTML = "Fetching data...";
   table = document.getElementById("data-table");
@@ -191,6 +174,8 @@ async function postToDB(doc) {
         "See browser's console for more details.";
       document.getElementById("status").innerHTML = msg;
     });
+
+  window.location.replace("system.html");
 }
 
 /*
@@ -237,6 +222,8 @@ async function deleteFromDB(id) {
         "See browser's console for more details.";
       document.getElementById("status").innerHTML = msg;
     });
+
+  window.location.replace("system.html");
 }
 
 function deleteFromTable(deletedCount) {

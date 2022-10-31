@@ -23,11 +23,10 @@ router.post("/login", async (req, res) => {
   if (await myDB.authenticate(user)) {
     req.session.user = user.user;
 
-    //res.redirect("/?msg=authenticated");
     res.redirect("/system.html");
   } else {
     req.session.user = null;
-    res.redirect("/?msg=error authenticating");
+    res.redirect("/?msg=wrong user name or password");
   }
 });
 

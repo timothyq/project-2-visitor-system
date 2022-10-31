@@ -1,6 +1,3 @@
-// api1 - getVistors: to get all the vistors (nodejs-post)
-// fetch the api1 in this file -> data json() -> print the data json in html
-
 const rowSelectColor = "#F5F5F5";
 const rowClearColor = "white";
 

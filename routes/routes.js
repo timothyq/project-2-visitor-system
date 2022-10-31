@@ -19,7 +19,7 @@ router.get("/getVisitors", async (req, res) => {
 router.post("/login", async (req, res) => {
   const user = req.body;
 
-  //Check that we got the correct info using databse
+  //Check that we got the correct info using database
   if (await myDB.authenticate(user)) {
     req.session.user = user.user;
 
@@ -46,7 +46,6 @@ router.post("/addVisitors", async (req, res) => {
 // delete visitor
 router.delete("/deleteVisitor/:id", async (req, res) => {
   let id = req.params.id;
-  //console.log("API ID:", id);
 
   if (id && ObjectId.isValid(id)) {
     try {

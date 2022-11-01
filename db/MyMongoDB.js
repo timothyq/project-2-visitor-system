@@ -3,7 +3,7 @@ import { MongoClient, ObjectId } from "mongodb";
 function MyMongoDB() {
   const myDB = {};
   // const url = process.env.MONGO_URL || "mongodb://localhost:27017";
-  //Using cloud mongodb
+  //Using mongodb cloud
   const url =
     "mongodb+srv://stephane:Mongopass123@cluster0.jicxbfs.mongodb.net/?retryWrites=true&w=majority";
   const DB_NAME = "visitorSystem";

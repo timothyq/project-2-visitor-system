@@ -21,3 +21,5 @@ After filling out the visitor's name and age, click the "add" button to save the
 To remove an entry from the table, navigate and click on the entry to be deleted, then click the "delete" button.
 
 The clear button serves to clear a selection from the table and empty the fields from entries it might contain.
+
+Video demo: https://youtu.be/PJPsB24hFwE

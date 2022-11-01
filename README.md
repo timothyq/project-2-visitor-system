@@ -4,6 +4,8 @@ The purpose of this application is to apply nodejs, express and vanilla javascri
 
 Video demo: https://youtu.be/PJPsB24hFwE
 
+Heroku deployment: https://visitor-system-heroku.herokuapp.com/
+
 This app was build using the template from this demo: https://github.com/prsaya/node-express-mongodb-html-demo-1
 
 This simple web application is made out of 2 html pages: the sign in page and the visitor system page

@@ -270,9 +270,3 @@ function selectTopOrBottomRow(n) {
   row.cells[2].children[0].checked = true;
   scrollToSelection();
 }
-
-function getUserName() {
-  const user = localStorage.getItem("user");
-  console.log("user", user);
-}
-getUserName();

@@ -2,6 +2,8 @@
 
 The purpose of this application is to apply nodejs, express and vanilla javascript and perform simple operations on a database, MongoDB cloud in this case.
 
+Video demo: https://youtu.be/PJPsB24hFwE
+
 This app was build using the template from this demo: https://github.com/prsaya/node-express-mongodb-html-demo-1
 
 This simple web application is made out of 2 html pages: the sign in page and the visitor system page
@@ -22,4 +24,3 @@ To remove an entry from the table, navigate and click on the entry to be deleted
 
 The clear button serves to clear a selection from the table and empty the fields from entries it might contain.
 
-Video demo: https://youtu.be/PJPsB24hFwE

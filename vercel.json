@@ -1,15 +1,13 @@
 {
-  "version": 2,
+  "cleanUrls": true,
   "builds": [
     {
-      "src": "./frontend/index.html",
+      "src": "./app.js",
       "use": "@vercel/node"
     }
   ],
-  "routes": [
-    {
-      "src": "/(.*)",
-      "dest": "/"
-    }
+  "rewrites": [
+    { "source": "/login", "destination": "/index.html" },
+    { "source": "/system", "destination": "/system.html" }
   ]
 }

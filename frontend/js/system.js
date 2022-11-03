@@ -18,7 +18,7 @@ window.onload = () => {
  */
 
 async function loadData() {
-  await fetch("http://localhost:3000/getVisitors")
+  await fetch("/getVisitors")
     .then((res) => {
       if (res.ok) {
         return res.json();

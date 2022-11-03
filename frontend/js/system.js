@@ -131,7 +131,7 @@ function addData() {
 }
 
 async function postToDB(doc) {
-  await fetch("http://localhost:3000/addVisitors/", {
+  await fetch("/addVisitors/", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",

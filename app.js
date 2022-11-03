@@ -3,6 +3,10 @@ import bodyParser from "body-parser";
 import session from "express-session";
 
 import router from "./routes/routes.js";
+import dotenv from "dotenv";
+
+// To fix Heroku deployment issue
+dotenv.config();
 
 const app = express();
 const PORT = process.env.PORT || 3000;

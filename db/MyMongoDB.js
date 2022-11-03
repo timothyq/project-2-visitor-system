@@ -1,11 +1,14 @@
 import { MongoClient, ObjectId } from "mongodb";
+import dotenv from "dotenv";
+
+// To fix Heroku deployment issue
+dotenv.config();
+
 // DB
 function MyMongoDB() {
   const myDB = {};
-  // const url = process.env.MONGO_URL || "mongodb://localhost:27017";
-  //Using mongodb cloud
-  const url =
-    "mongodb+srv://stephane:Mongopass123@cluster0.jicxbfs.mongodb.net/?retryWrites=true&w=majority";
+  const url = process.env.MONGO_URL || "mongodb://localhost:27017";
+
   const DB_NAME = "visitorSystem";
   const COLLECTION_LOGIN = "users";
   const COLLECTION_VISIT = "visitors";
